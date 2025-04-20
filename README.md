@@ -66,12 +66,6 @@ To run the application using Maven, execute the following command:
 mvn clean javafx:run
 ```
 
-<!-- ### Using IntelliJ IDEA
-1. Open the project in **IntelliJ IDEA**.
-2. Navigate to `src/main/java/com.teamoneboxoffice/Main.java`.
-3. Right-click on `Main.java` and select **Run 'Main.main()'**. -->
-
-
 ## CI/CD Pipeline
 This project includes a **GitHub Actions** workflow (`.github/workflows/maven-build.yaml`) for Continuous Integration.
 ### Workflow Steps:
