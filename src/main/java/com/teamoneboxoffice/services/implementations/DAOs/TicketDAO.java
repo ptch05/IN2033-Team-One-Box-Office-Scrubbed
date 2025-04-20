@@ -15,6 +15,12 @@ public class TicketDAO {
         this.db = new Database();
     }
 
+    /**
+     * Creates a new ticket in the database.
+     *
+     * @param ticket The ticket to be created.
+     * @return true if the ticket was created successfully, false otherwise.
+     */
     public boolean create(Ticket ticket) {
         String sql = "INSERT INTO Ticket (Ticket_ID, Seat_Number, Row_Number, Hall, " +
                 "Ticket_Type, Eligible_For_Discount, Wheelchair, Price, Priority_Status, Customer_ID) " +
@@ -43,6 +49,12 @@ public class TicketDAO {
         }
     }
 
+    /**
+     * Retrieves a ticket by its ID.
+     *
+     * @param ticketId The ID of the ticket to retrieve.
+     * @return The ticket with the specified ID, or null if not found.
+     */
     public Ticket getById(String ticketId) {
         String sql = "SELECT * FROM Ticket WHERE Ticket_ID = ?";
 
@@ -63,6 +75,12 @@ public class TicketDAO {
         return null;
     }
 
+    /**
+     * Updates an existing ticket in the database.
+     *
+     * @param ticket The ticket to be updated.
+     * @return true if the ticket was updated successfully, false otherwise.
+     */
     public boolean update(Ticket ticket) {
         String sql = "UPDATE Ticket SET Seat_Number = ?, Row_Number = ?, Hall = ?, " +
                 "Ticket_Type = ?, Eligible_For_Discount = ?, Wheelchair = ?, " +
@@ -158,6 +176,11 @@ public class TicketDAO {
         return success;
     }
 
+    /**
+     * Retrieves all tickets from the database.
+     *
+     * @return A list of all tickets.
+     */
     public List<Ticket> getAll() {
         List<Ticket> tickets = new ArrayList<>();
         String sql = "SELECT * FROM Ticket";
@@ -177,6 +200,12 @@ public class TicketDAO {
         return tickets;
     }
 
+    /**
+     * Retrieves tickets by customer ID from the database.
+     *
+     * @param customerId The ID of the customer whose tickets to retrieve.
+     * @return A list of tickets associated with the specified customer ID.
+     */
     public List<Ticket> getByCustomerId(String customerId) {
         List<Ticket> tickets = new ArrayList<>();
         String sql = "SELECT * FROM Ticket WHERE Customer_ID = ?";
@@ -199,6 +228,12 @@ public class TicketDAO {
     }
 
 
+    /**
+     * Retrieves tickets by hall from the database.
+     *
+     * @param hall The hall of the tickets to retrieve.
+     * @return A list of tickets associated with the specified hall.
+     */
     public List<Ticket> getByHall(String hall) {
         List<Ticket> tickets = new ArrayList<>();
         String sql = "SELECT * FROM Ticket WHERE Hall = ?";
@@ -220,7 +255,12 @@ public class TicketDAO {
         return tickets;
     }
 
-
+    /**
+     * Retrieves tickets by ticket type from the database.
+     *
+     * @param ticketType The type of the tickets to retrieve.
+     * @return A list of tickets associated with the specified ticket type.
+     */
     public List<Ticket> getByTicketType(String ticketType) {
         List<Ticket> tickets = new ArrayList<>();
         String sql = "SELECT * FROM Ticket WHERE Ticket_Type = ?";
@@ -242,7 +282,13 @@ public class TicketDAO {
         return tickets;
     }
 
-
+    /**
+     * Maps a ResultSet row to a Ticket object.
+     *
+     * @param rs The ResultSet containing the ticket data.
+     * @return A Ticket object populated with the data from the ResultSet.
+     * @throws SQLException If an SQL error occurs while mapping the ResultSet.
+     */
     private Ticket mapResultSetToTicket(ResultSet rs) throws SQLException {
         String ticketID = rs.getString("Ticket_ID");
         int seatNumber = rs.getInt("Seat_Number");

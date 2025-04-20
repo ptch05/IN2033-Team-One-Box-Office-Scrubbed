@@ -15,6 +15,12 @@ public class VenueDAO {
         this.db = new Database();
     }
 
+    /**
+     * Creates a new venue in the database.
+     *
+     * @param venue The venue to be created.
+     * @return The ID of the created venue, or -1 if the creation failed.
+     */
     public int create(Venue venue) {
         String sql = "INSERT INTO Venue (Venue_Name, Venue_In_Use, Venue_Capacity, Is_Meeting_Room) " +
                 "VALUES (?, ?, ?, ?)";
@@ -45,6 +51,13 @@ public class VenueDAO {
             return -1;
         }
     }
+
+    /**
+     * Retrieves a venue by its ID.
+     *
+     * @param venueId The ID of the venue to retrieve.
+     * @return The venue with the specified ID, or null if not found.
+     */
     public Venue getById(int venueId) {
         String sql = "SELECT * FROM Venue WHERE Venue_ID = ?";
 
@@ -65,6 +78,14 @@ public class VenueDAO {
         return null;
     }
 
+    /**
+     * Updates an existing venue's information in the database.
+     *
+     * @param venue The Venue object containing the updated venue information
+     * @param venueId The ID of the venue to be updated
+     * @return true if the update was successful, false otherwise
+     * @throws SQLException if a database access error occurs
+     */
     public boolean update(Venue venue, int venueId) {
         String sql = "UPDATE Venue SET Venue_Name = ?, Venue_In_Use = ?, " +
                 "Venue_Capacity = ?, Is_Meeting_Room = ? WHERE Venue_ID = ?";
@@ -87,6 +108,12 @@ public class VenueDAO {
         }
     }
 
+    /**
+     * Deletes a venue from the database.
+     *
+     * @param venueId The ID of the venue to delete.
+     * @return true if the deletion was successful, false otherwise.
+     */
     public boolean delete(int venueId) {
         String sql = "DELETE FROM Venue WHERE Venue_ID = ?";
 
@@ -103,6 +130,11 @@ public class VenueDAO {
         }
     }
 
+    /**
+     * Retrieves all venues from the database.
+     *
+     * @return A list of all venues.
+     */
     public List<Venue> getAll() {
         List<Venue> venues = new ArrayList<>();
         String sql = "SELECT * FROM Venue";
@@ -122,6 +154,13 @@ public class VenueDAO {
         return venues;
     }
 
+    /**
+     * Maps a ResultSet row to a Venue object.
+     *
+     * @param rs The ResultSet containing venue data to be mapped
+     * @return A new Venue object populated with data from the ResultSet
+     * @throws SQLException If there is an error accessing the ResultSet data
+     */
     private Venue mapResultSetToVenue(ResultSet rs) throws SQLException {
         String venueName = rs.getString("Venue_Name");
         boolean venueInUse = rs.getBoolean("Venue_In_Use");

@@ -7,7 +7,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class UserDAO {
     private final Database db;
 
@@ -15,6 +14,12 @@ public class UserDAO {
         this.db = new Database();
     }
 
+    /**
+     * Creates a new user in the database.
+     *
+     * @param user The user to be created.
+     * @return true if the user was created successfully, false otherwise.
+     */
     public boolean create(User user) {
         String sql = "INSERT INTO User (User_ID, User_Name, Password, Role, Is_Active) " +
                 "VALUES (?, ?, ?, ?, ?)";
@@ -37,7 +42,12 @@ public class UserDAO {
         }
     }
 
-
+    /**
+     * Retrieves a user by their ID.
+     *
+     * @param userId The ID of the user to retrieve.
+     * @return The user with the specified ID, or null if not found.
+     */
     public User getById(long userId) {
         String sql = "SELECT * FROM User WHERE User_ID = ?";
 
@@ -58,7 +68,12 @@ public class UserDAO {
         return null;
     }
 
-
+    /**
+     * Retrieves a user by their username.
+     *
+     * @param username The username of the user to retrieve.
+     * @return The user with the specified username, or null if not found.
+     */
     public User getByUsername(String username) {
         String sql = "SELECT * FROM User WHERE User_Name = ?";
 
@@ -79,7 +94,12 @@ public class UserDAO {
         return null;
     }
 
-
+    /**
+     * Updates an existing user in the database.
+     *
+     * @param user The user with updated information.
+     * @return true if the user was updated successfully, false otherwise.
+     */
     public boolean update(User user) {
         String sql = "UPDATE User SET User_Name = ?, Password = ?, Role = ?, Is_Active = ? " +
                 "WHERE User_ID = ?";
@@ -102,6 +122,13 @@ public class UserDAO {
         }
     }
 
+    /**
+     * Updates the active status of a user in the database.
+     * 
+     * @param userId The unique identifier of the user to update
+     * @param isActive The new active status to set (true for active, false for inactive)
+     * @return boolean Returns true if the update was successful, false if it failed
+     */
     public boolean updateActiveStatus(long userId, boolean isActive) {
         String sql = "UPDATE User SET Is_Active = ? WHERE User_ID = ?";
 
@@ -120,6 +147,12 @@ public class UserDAO {
         }
     }
 
+    /**
+     * Deletes a user from the database.
+     *
+     * @param userId The ID of the user to delete.
+     * @return true if the user was deleted successfully, false otherwise.
+     */
     public boolean delete(long userId) {
         String sql = "DELETE FROM User WHERE User_ID = ?";
 
@@ -136,6 +169,11 @@ public class UserDAO {
         }
     }
 
+    /**
+     * Retrieves all users from the database.
+     *
+     * @return A list of all users.
+     */
     public List<User> getAll() {
         List<User> users = new ArrayList<>();
         String sql = "SELECT * FROM User";
@@ -155,6 +193,12 @@ public class UserDAO {
         return users;
     }
 
+    /**
+     * Retrieves users by their role from the database.
+     *
+     * @param role The role of the users to retrieve.
+     * @return A list of users with the specified role.
+     */
     public List<User> getByRole(String role) {
         List<User> users = new ArrayList<>();
         String sql = "SELECT * FROM User WHERE Role = ?";
@@ -176,6 +220,13 @@ public class UserDAO {
         return users;
     }
 
+    /**
+     * Authenticates a user by checking their username and password.
+     *
+     * @param username The username of the user.
+     * @param password The password of the user.
+     * @return The authenticated user, or null if authentication failed.
+     */
     public User authenticate(String username, String password) {
         String sql = "SELECT * FROM User WHERE User_Name = ? AND Password = ? AND Is_Active = true";
 
@@ -197,6 +248,13 @@ public class UserDAO {
         return null;
     }
 
+    /**
+     * Maps a ResultSet to a User object.
+     *
+     * @param rs The ResultSet to map.
+     * @return The mapped User object.
+     * @throws SQLException If an SQL error occurs.
+     */
     private User mapResultSetToUser(ResultSet rs) throws SQLException {
         long id = rs.getLong("User_ID");
         String userName = rs.getString("User_Name");

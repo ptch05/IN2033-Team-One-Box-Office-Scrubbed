@@ -16,6 +16,12 @@ public class CustomerDAO {
     }
 
 
+    /**
+     * Creates a new customer in the database.
+     *
+     * @param customer The Customer object containing customer information.
+     * @return true if the customer was created successfully, false otherwise.
+     */
     public boolean create(Customer customer) {
         String sql = "INSERT INTO Customer (Customer_ID, Opt_IN, Payment_Type, Gender, " +
                 "Postal_Code, Email_Address, Phone_Number) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -40,6 +46,12 @@ public class CustomerDAO {
         }
     }
 
+    /**
+     * Retrieves a customer by their ID.
+     *
+     * @param customerId The ID of the customer to retrieve.
+     * @return The Customer object if found, null otherwise.
+     */
     public Customer getById(String customerId) {
         String sql = "SELECT * FROM Customer WHERE Customer_ID = ?";
 
@@ -60,6 +72,12 @@ public class CustomerDAO {
         return null;
     }
 
+    /**
+     * Retrieves a customer by their email address.
+     *
+     * @param email The email address of the customer to retrieve.
+     * @return The Customer object if found, null otherwise.
+     */
     public Customer getByEmail(String email) {
         String sql = "SELECT * FROM Customer WHERE Email_Address = ?";
 
@@ -80,6 +98,12 @@ public class CustomerDAO {
         return null;
     }
 
+    /**
+     * Updates an existing customer in the database.
+     *
+     * @param customer The Customer object containing updated information.
+     * @return true if the customer was updated successfully, false otherwise.
+     */
     public boolean update(Customer customer) {
         String sql = "UPDATE Customer SET Opt_IN = ?, Payment_Type = ?, Gender = ?, " +
                 "Postal_Code = ?, Email_Address = ?, Phone_Number = ? WHERE Customer_ID = ?";
@@ -104,6 +128,12 @@ public class CustomerDAO {
         }
     }
 
+    /**
+     * Deletes a customer from the database.
+     *
+     * @param customerId The ID of the customer to delete.
+     * @return true if the customer was deleted successfully, false otherwise.
+     */
     public boolean delete(String customerId) {
         String sql = "DELETE FROM Customer WHERE Customer_ID = ?";
 
@@ -120,6 +150,11 @@ public class CustomerDAO {
         }
     }
 
+    /**
+     * Retrieves all customers from the database.
+     *
+     * @return A list of Customer objects.
+     */
     public List<Customer> getAll() {
         List<Customer> customers = new ArrayList<>();
         String sql = "SELECT * FROM Customer";
@@ -139,6 +174,13 @@ public class CustomerDAO {
         return customers;
     }
 
+    /**
+     * Maps a ResultSet to a Customer object.
+     *
+     * @param rs The ResultSet containing customer data.
+     * @return A Customer object.
+     * @throws SQLException If an SQL error occurs.
+     */
     private Customer mapResultSetToCustomer(ResultSet rs) throws SQLException {
         String customerId = rs.getString("Customer_ID");
         boolean optIn = rs.getBoolean("Opt_IN");
