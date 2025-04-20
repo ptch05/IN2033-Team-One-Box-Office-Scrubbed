@@ -31,7 +31,7 @@ public class VenueDAO {
             stmt.setString(1, venue.getVenueName());
             stmt.setBoolean(2, venue.isVenueInUse());
             stmt.setInt(3, venue.getVenueCapacity());
-            stmt.setBoolean(4, venue.IsMeetingRoom());
+            stmt.setBoolean(4, venue.isMeetingRoom());
 
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
@@ -96,7 +96,7 @@ public class VenueDAO {
             stmt.setString(1, venue.getVenueName());
             stmt.setBoolean(2, venue.isVenueInUse());
             stmt.setInt(3, venue.getVenueCapacity());
-            stmt.setBoolean(4, venue.IsMeetingRoom());
+            stmt.setBoolean(4, venue.isMeetingRoom());
             stmt.setInt(5, venueId);
 
             int affectedRows = stmt.executeUpdate();
