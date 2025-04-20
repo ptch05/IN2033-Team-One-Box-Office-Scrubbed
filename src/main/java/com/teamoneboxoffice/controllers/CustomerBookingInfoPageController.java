@@ -57,7 +57,6 @@ public class CustomerBookingInfoPageController implements Initializable {
 
     private boolean isWheelchairBooking;
     private int numberOfSeats;
-    private float totalPrice = 0.0f;
 
     // --- Timer ---
     private Timeline countdownTimeline;

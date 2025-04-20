@@ -21,7 +21,6 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.util.StringConverter;
 

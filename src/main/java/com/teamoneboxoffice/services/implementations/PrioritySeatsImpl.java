@@ -1,11 +1,8 @@
 package com.teamoneboxoffice.services.implementations;
 
 import com.teamoneboxoffice.interfaces.PrioritySeats;
-import com.teamoneboxoffice.entities.Ticket;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,9 +19,6 @@ public class PrioritySeatsImpl implements PrioritySeats {
     private Map<Integer, String> reservedSeats = new HashMap<>();
     private Map<Integer, String> priorityStatuses = new HashMap<>();
 
-    private List<Ticket> tickets = new ArrayList<>();
-    private List<Ticket> priorityTickets = new ArrayList<>();
-
     /**
      * Attempts to reserve a priority seat
      * 
@@ -33,8 +27,6 @@ public class PrioritySeatsImpl implements PrioritySeats {
      * @param priorityStatus Status indicating priority level
      * @return true if reservation successful, false if seat already reserved
      */
-
-    //--Interface Version 1 Implementation:
 
     @Override
     public boolean reservePrioritySeat(String ticketId, int seatNumber, String priorityStatus) {
@@ -45,27 +37,4 @@ public class PrioritySeatsImpl implements PrioritySeats {
         priorityStatuses.put(seatNumber, priorityStatus);
         return true;
     }
-
-    //--Interface Version 2 Implementation:
-
-    /*
-
-    @Override
-    public List<Ticket> getPriorityTickets()
-    {
-
-        //return List<Ticket>;
-        for(Ticket t : tickets)
-        {
-            if(t.getPriorityStatus().equalsIgnoreCase("VIP"))
-            {
-                priorityTickets.add(t);
-            }
-        }
-
-        return priorityTickets;
-    }
-
-     */
-
 }

@@ -1,7 +1,5 @@
 package com.teamoneboxoffice.entities;
 
-import java.time.LocalDate;
-
 /**
  * Represents a member of the 'Friends of Lancaster' program.
  * This is distinct from the general Customer entity.

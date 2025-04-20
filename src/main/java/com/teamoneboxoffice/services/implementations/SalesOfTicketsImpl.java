@@ -23,10 +23,6 @@ public class SalesOfTicketsImpl implements SalesOfTickets {
     private Map<String, Integer> ticketNumbers = new HashMap<>();
     private Map<String, String> filmIds = new HashMap<>();
 
-    //private List<Event> events;
-
-    private Map<String, Double> idToCosts;
-
 
 
     /**
@@ -50,56 +46,4 @@ public class SalesOfTicketsImpl implements SalesOfTickets {
         filmIds.put(ticketSalesId, filmId);
         return ticketSalesId;
     }
-
-
-    /*
-
-    @Override
-    public void recordTicketSale() {
-        String ticketSalesId = UUID.randomUUID().toString();
-        for(Event e : events)
-        {
-            if(e.getEventName().equalsIgnoreCase("Movie etc")) {
-                revenues.put(ticketSalesId, e.getTicketRevenue());
-                rentalCosts.put(ticketSalesId, e.getRentalCost());
-                ticketNumbers.put(ticketSalesId, e.getTicketNumbers());
-                filmIds.put(ticketSalesId, e.getEventID());
-                return ticketSalesId;
-            }
-        }
-    }
-
-     */
-
-    //--Interface Version 2 Implementation:
-
-    /*
-
-    @Override
-    public Map<String, Double> compareCosts(List<EventDTO> movieEvents)
-    {
-        //for(Event e : events)
-        //{
-            EventMapper eventDTO = new EventMapper();
-            List<EventDTO> events = eventDTO.mapAllEventObjects();
-
-            for(EventDTO e : events) {
-                if (eventDTO != null) //--data transfer objects
-                {
-                    double rentalCost = e.getRentalCost();
-                    double revenue = e.getTicketRevenue();
-
-                    double costs = 0;
-
-                    costs = rentalCost - revenue;
-
-                    idToCosts.put(e.getEventID(), costs);
-                }
-            }
-
-        return idToCosts;
-
-    }
-
-     */
 }

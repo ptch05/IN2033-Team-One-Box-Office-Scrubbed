@@ -1,7 +1,5 @@
 package com.teamoneboxoffice.interfaces;
 
-import java.util.List;
-
 
 public interface PrioritySeats {
     /**
@@ -11,13 +9,6 @@ public interface PrioritySeats {
      * @param priorityStatus Priority status of the reservation
      * @return boolean indicating if reservation was successful
      */
-
-    //--Interface Version 1:
-
     boolean reservePrioritySeat(String ticketId, int seatNumber, String priorityStatus);
-
-    //--Interface Version 2:
-
-    //List<Ticket> getPriorityTickets();
 }
 

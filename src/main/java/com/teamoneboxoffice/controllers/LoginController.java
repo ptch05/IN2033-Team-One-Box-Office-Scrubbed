@@ -3,7 +3,7 @@ package com.teamoneboxoffice.controllers;
 import com.teamoneboxoffice.entities.User;
 import com.teamoneboxoffice.services.implementations.DAOs.UserDAO;
 import com.teamoneboxoffice.util.NavigationUtil;
-import com.teamoneboxoffice.util.SessionManager; // Import SessionManager
+import com.teamoneboxoffice.util.SessionManager;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -13,9 +13,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-// Stage import no longer needed here
-
-import java.net.URL;
 
 /**
  * Controller for the login screen (LoginForm.fxml).
