@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?> <?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="700.0" prefWidth="1100.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamoneboxoffice.controllers.ViewSeatingConfigurationsController">
+    <top>
+        <fx:include source="ManagerNavBar.fxml" /> <!-- Or appropriate navbar -->
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.3" VBox.vgrow="ALWAYS" BorderPane.alignment="CENTER">
+            <items>
+                <!-- Left Side: Event List -->
+                <VBox spacing="5.0" minWidth="250.0">
+                    <padding><Insets top="10.0" left="10.0" right="10.0" bottom="10.0" /></padding>
+                    <Label text="Select Event:" style="-fx-font-weight: bold;"/>
+                    <ListView fx:id="eventListView" VBox.vgrow="ALWAYS" />
+                </VBox>
+
+                <!-- Right Side: Seating Plan and Status -->
+                <VBox spacing="10.0">
+                    <padding><Insets top="10.0" left="10.0" right="10.0" bottom="10.0" /></padding>
+                    <Label text="Seating Configuration (Click seats to toggle: Available -> Restricted -> Disabled)" style="-fx-font-weight: bold;"/>
+                    <ScrollPane fx:id="seatingScrollPane" fitToWidth="true" VBox.vgrow="ALWAYS">
+                        <content>
+                            <GridPane fx:id="seatingPlanGrid" hgap="3.0" vgap="3.0" alignment="CENTER">
+                                <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+                            </GridPane>
+                        </content>
+                    </ScrollPane>
+                    <Label fx:id="statusLabel" text="Status messages will appear here." wrapText="true"/>
+                </VBox>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>

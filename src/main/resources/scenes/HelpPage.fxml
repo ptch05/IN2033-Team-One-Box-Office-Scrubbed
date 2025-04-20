@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane prefHeight="700.0" prefWidth="1100.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamoneboxoffice.controllers.HelpPageController">
+    <top>
+        <fx:include source="DeputyNavBar.fxml" /> <!-- Or appropriate navbar -->
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-area">
+            <content>
+                <VBox spacing="25.0">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
+                    </padding>
+                    <children>
+                        <Label text="Help &amp; Information" styleClass="page-title">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                        </Label>
+
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Guests" styleClass="help-subtitle"/>
+                                <TextFlow>
+                                    <children>
+                                        <Text styleClass="help-text" text="The Box Office team are responsible for checking guest tickets for performances and directing them to their seats. They also greet and direct people attending meetings or other activities in the venue." />
+                                    </children>
+                                </TextFlow>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Seating" styleClass="help-subtitle"/>
+                                <TextFlow>
+                                    <children>
+                                        <Text styleClass="help-text" text="The Box Office Manager or Deputy will review the seating configuration for each show and ensure that any seats with restricted view are removed from sale. Some seats can be sold with a slightly restricted view, but this must be reasonable as to not overly impact the enjoyment of the performance.&#10;&#10;The box office can also sell any seats in row A or L as a wheelchair space, along with the first and last seat of each row. When a wheelchair is required, an adjacent seat must be removed." />
+                                    </children>
+                                </TextFlow>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="10.0" style="-fx-border-color: lightgrey; -fx-padding: 15;">
+                            <children>
+                                <Label text="Large Hall (Main Auditorium)" styleClass="help-subtitle"/>
+                                <ImageView fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="/images/MainHall-SeatingPlan.png" />
+                                    </image>
+                                </ImageView>
+                                <TextFlow>
+                                    <children>
+                                        <Text styleClass="help-text" text="Directions:&#10;- Stalls rows A-O are on the ground floor. Access via main auditorium doors.&#10;- Balcony rows AA-CC are upstairs. Access via left or right balcony stairs.&#10;- Lower seat numbers (e.g., 1-5) are generally towards the left side when facing the stage.&#10;- Higher seat numbers (e.g., 15-19) are generally towards the right side when facing the stage.&#10;- Wheelchair accessible spaces are typically located on rows A to L along with the first and last seat of each row." />
+                                    </children>
+                                </TextFlow>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="10.0" style="-fx-border-color: lightgrey; -fx-padding: 15;">
+                            <children>
+                                <Label text="Small Hall (Studio Theatre)" styleClass="help-subtitle"/>
+                                <ImageView fitHeight="350.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="/images/SmallHall-SeatingPlan.png" />
+                                    </image>
+                                </ImageView>
+                                <TextFlow>
+                                    <children>
+                                        <Text styleClass="help-text" text="Directions:&#10;- All seats (Rows A-N) are on one level. Access via studio entrance.&#10;- Row A is closest to the stage, Row N is furthest back near the sound desk.&#10;- The main aisle is on the left side (facing the stage).&#10;- Lower seat numbers are generally towards the center, higher numbers towards the right wall.&#10;- Row M and N have fewer seats and are offset.&#10;- Wheelchair accessible spaces are typically located on rows A to L along with the first and last seat of each row." />
+                                    </children>
+                                </TextFlow>
+                            </children>
+                        </VBox>
+
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

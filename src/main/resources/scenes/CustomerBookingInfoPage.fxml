@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import java.lang.String?>
+
+<BorderPane prefHeight="700.0" prefWidth="1100.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamoneboxoffice.controllers.CustomerBookingInfoPageController">
+    <top>
+        <fx:include source="StaffNavBar.fxml" />
+    </top>
+    <center>
+        <VBox alignment="TOP_LEFT" spacing="20.0" styleClass="content-area">
+            <padding>
+                <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+            </padding>
+            <children>
+                <!-- HBox for Title and Timer -->
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                        <Label text="Customer &amp; Booking Information" styleClass="page-title" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="timerLabel" text="10:00" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #555555;">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="15.0" />
+                    </VBox.margin>
+                </HBox>
+
+                <GridPane hgap="15.0" vgap="12.0" maxWidth="700.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" /> <!-- Labels -->
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" /> <!-- Fields -->
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" /> <!-- Labels -->
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" /> <!-- Fields -->
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" /> <!-- Email -->
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" /> <!-- Name/Phone -->
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" /> <!-- Ticket/Num Seats -->
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" /> <!-- Seats -->
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" /> <!-- Wheelchair/Cust ID -->
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" /> <!-- Price/Discount -->
+                    </rowConstraints>
+                    <children>
+                        <!-- Email with Lookup Button -->
+                        <Label text="Email:" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                            <styleClass>
+                                <String fx:value="form-label" />
+                            </styleClass>
+                        </Label>
+                        <HBox spacing="10.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="0">
+                            <children>
+                                <TextField fx:id="emailTextField" promptText="Enter customer email" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="lookupCustomerButton" mnemonicParsing="false" onAction="#handleLookupCustomer" text="Lookup Customer">
+                                    <styleClass>
+                                        <String fx:value="action-button-blue" />
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </HBox>
+
+                        <!-- Name and Phone -->
+                        <Label text="Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="1"><styleClass><String fx:value="form-label" /></styleClass></Label>
+                        <TextField fx:id="nameTextField" promptText="Enter customer name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Phone:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1"><styleClass><String fx:value="form-label" /></styleClass></Label>
+                        <TextField fx:id="phoneTextField" promptText="Enter phone number" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <!-- Ticket Number and Num Seats -->
+                        <Label text="Ticket Number:" GridPane.halignment="RIGHT" GridPane.rowIndex="2"><styleClass><String fx:value="form-label" /></styleClass></Label>
+                        <TextField fx:id="ticketNumberField" editable="false" focusTraversable="false" styleClass="display-only-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Number of Seats:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2"><styleClass><String fx:value="form-label" /></styleClass></Label>
+                        <TextField fx:id="numSeatsField" editable="false" focusTraversable="false" styleClass="display-only-field" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <!-- Seat(s) -->
+                        <Label text="Seat(s):" GridPane.halignment="RIGHT" GridPane.rowIndex="3"><styleClass><String fx:value="form-label" /></styleClass></Label>
+                        <TextField fx:id="seatsField" editable="false" focusTraversable="false" styleClass="display-only-field" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                        <!-- Wheelchair and Customer ID -->
+                        <Label text="Wheelchair Seat:" GridPane.halignment="RIGHT" GridPane.rowIndex="4"><styleClass><String fx:value="form-label" /></styleClass></Label>
+                        <TextField fx:id="wheelchairSeatField" editable="false" focusTraversable="false" styleClass="display-only-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Customer ID:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4"><styleClass><String fx:value="form-label" /></styleClass></Label>
+                        <TextField fx:id="customerIdField" editable="false" focusTraversable="false" styleClass="display-only-field" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <!-- Price -->
+                        <Label text="Total Price:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5"><styleClass><String fx:value="form-label" /></styleClass></Label>
+                        <TextField fx:id="totalPriceField" editable="false" focusTraversable="false" styleClass="display-only-field" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <!-- Discount if exists -->
+                        <Label text="Discount Applied:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5"><styleClass><String fx:value="form-label" /></styleClass></Label>
+                        <TextField fx:id="discountAppliedField" editable="false" focusTraversable="false" styleClass="display-only-field" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+
+                    </children>
+                </GridPane>
+                <!-- Buttons -->
+                <HBox alignment="CENTER_RIGHT" spacing="20.0">
+                    <VBox.margin>
+                        <Insets top="30.0" />
+                    </VBox.margin>
+                    <children>
+                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSaveBooking" text="Save Booking">
+                            <styleClass>
+                                <String fx:value="action-button-green" />
+                            </styleClass>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
