@@ -58,8 +58,6 @@ public class Event
         return eventName;
     }
 
-    //--Will be set later on:
-
     public void setTicketRevenue(double ticketRevenue) {
         this.ticketRevenue = ticketRevenue;
     }

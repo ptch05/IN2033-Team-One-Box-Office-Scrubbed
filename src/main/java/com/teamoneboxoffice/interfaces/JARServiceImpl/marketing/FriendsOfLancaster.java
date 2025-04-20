@@ -8,5 +8,5 @@ public interface FriendsOfLancaster {
 
     boolean checkList (String userID); //checks if user is a friend
 
-    void getReservedPrioritySeats(String Event, int reservedSeats); //returns reservied priority seats
+    void getReservedPrioritySeats(String Event, int reservedSeats); //returns reserved priority seats
 }
