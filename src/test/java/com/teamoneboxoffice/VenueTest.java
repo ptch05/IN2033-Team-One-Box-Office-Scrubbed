@@ -24,7 +24,7 @@ class VenueTest {
         assertEquals(TEST_VENUE_NAME, venue.getVenueName(), "Venue name should match the test value");
         assertEquals(TEST_VENUE_IN_USE, venue.isVenueInUse(), "Venue in use should match the test value");
         assertEquals(TEST_VENUE_CAPACITY, venue.getVenueCapacity(), "Venue capacity should match the test value");
-        assertEquals(TEST_IS_MEETING_ROOM, venue.IsMeetingRoom(), "Meeting room status should match the test value");
+        assertEquals(TEST_IS_MEETING_ROOM, venue.isMeetingRoom(), "Meeting room status should match the test value");
     }
 
     @Test
@@ -37,7 +37,7 @@ class VenueTest {
         assertEquals("Conference Hall", venue.getVenueName(), "Venue name should be updated");
         assertFalse(venue.isVenueInUse(), "Venue in use should be updated to false");
         assertEquals(300, venue.getVenueCapacity(), "Venue capacity should be updated");
-        assertTrue(venue.IsMeetingRoom(), "Meeting room status should be updated to true");
+        assertTrue(venue.isMeetingRoom(), "Meeting room status should be updated to true");
     }
 }
 
