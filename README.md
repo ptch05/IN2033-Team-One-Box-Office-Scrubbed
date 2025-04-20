@@ -1,11 +1,11 @@
-# IN2033-Team-One-Box-Office-scrubbed
+# IN2033-Team-One-Box-Office-V2
 
 ## Project Overview
 This is our Team1 Box Office code. It's a JavaFX-based application developed using Java 21 and Apache Maven, using Scene Builder to help create the UI.
 
 ## Project Structure
 ```
-IN2033-Team-One-Box-office-scrubbed/
+IN2033-Team-One-Box-office-V2/
 ├── .github/                # GitHub Actions workflows (CI/CD)
 │   └── workflows/
 │       └── maven-build.yaml
@@ -49,8 +49,8 @@ Before running the project, ensure you have the following installed:
 ## Setting Up the Project
 ### Clone the Repository
 ```sh
-git clone https://github.com/ptch05/IN2033-Team-One-Box-office-scrubbed.git
-cd IN2033-Team-One-Box-office-scrubbed
+git clone https://github.com/ptch05/IN2033-Team-One-Box-office-V2.git
+cd IN2033-Team-One-Box-office-V2
 ```
 
 ### Install Dependencies
